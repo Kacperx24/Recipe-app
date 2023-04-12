@@ -1,26 +1,77 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { theme } from './theme'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import AddRecipeForm from './pages/AddRecipeForm'
+import MainPage from './pages/MainPage'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const GlobalStyle = createGlobalStyle`
+* {
+	font-family: Raleway;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
-export default App;
+button {
+	outline: none;
+	border: none;
+	border-radius: 4px;
+	font-weight: 600;
+	cursor: pointer
+}
+
+input,textarea {
+	outline: none;
+	border: none;
+	border-radius: 8px;
+	font-weight: 500;
+
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #c0c0c0;
+    /* background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent); */
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    /* box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); */
+}
+
+`
+
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <MainPage />,
+		children: [
+			{
+				path: '/form',
+				element: <AddRecipeForm />,
+			},
+		],
+	},
+])
+
+function App() {
+	return (
+		<ThemeProvider theme={theme}>
+			<GlobalStyle />
+			<RouterProvider router={router} />
+		</ThemeProvider>
+	)
+}
+
+export default App
