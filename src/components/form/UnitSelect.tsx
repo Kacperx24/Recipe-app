@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import styled, { css } from 'styled-components'
 import Paragraph from '../ui/Paragraph'
 import { UNITS } from '../../data/constants'
 
+interface UnitSelectProps {
+	setUnit: (unit: string) => void
+}
+
 const Container = styled.div`
 	display: flex;
-	gap: 8px;
+	gap: 6px;
 `
 
 const UnitsContainer = styled.div`
@@ -17,7 +21,7 @@ const UnitsContainer = styled.div`
 	overflow: hidden;
 `
 
-const Unit = styled.div<{ selected: boolean; position: string }>`
+const UnitItem = styled.div<{ position: string }>`
 	position: absolute;
 	height: 100%;
 	width: 100%;
@@ -25,8 +29,8 @@ const Unit = styled.div<{ selected: boolean; position: string }>`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	${({ position, selected }) =>
-		(position === '100%' || selected) &&
+	${({ position }) =>
+		(position === '100%' || position === '0%') &&
 		css`
 			transition: top 0.3s ease-in-out;
 		`}
@@ -41,35 +45,31 @@ const ButtonContainer = styled.div`
 	}
 `
 
-const UnitSelect = () => {
+const calculatePosition = (index: number, selectedIndex: number) => {
+	if (index === selectedIndex) return '0%'
+	if (index === selectedIndex - 1 || (selectedIndex === 0 && index === 2))
+		return '100%'
+	return '-100%'
+}
+
+const UnitSelect: FC<UnitSelectProps> = ({ setUnit }) => {
 	const [selectedUnitIndex, setSelectedUnitIndex] = useState(0)
 
 	const changeUnitIndex = () => {
-		if (selectedUnitIndex < UNITS.length - 1) {
-			return setSelectedUnitIndex(prev => prev + 1)
-		}
-		return setSelectedUnitIndex(0)
-	}
-
-	const calculatePosition = (index: number, selectedIndex: number) => {
-		console.log(index, selectedIndex)
-		if (index === selectedIndex) return '0%'
-		if (index === selectedIndex - 1 || (selectedIndex === 0 && index === 2))
-			return '100%'
-		return '-100%'
+		setSelectedUnitIndex(prev => (prev + 1) % UNITS.length)
+		setUnit(UNITS[selectedUnitIndex])
 	}
 
 	return (
 		<Container>
 			<UnitsContainer>
 				{UNITS.map((item, index) => (
-					<Unit
+					<UnitItem
 						key={item}
-						selected={index === selectedUnitIndex}
 						position={calculatePosition(index, selectedUnitIndex)}
 					>
 						<Paragraph>{item}</Paragraph>
-					</Unit>
+					</UnitItem>
 				))}
 			</UnitsContainer>
 			<ButtonContainer>

@@ -12,3 +12,10 @@ export interface Country {
 	label: string
 	image: string
 }
+
+export interface Ingredient {
+	unit: string
+	quantity: string
+	name: string
+	id: string
+}

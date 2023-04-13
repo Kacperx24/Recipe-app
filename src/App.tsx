@@ -18,7 +18,13 @@ button {
 	border: none;
 	border-radius: 4px;
 	font-weight: 600;
-	cursor: pointer
+	cursor: pointer;
+	transition: .1s ease-in-out;
+	
+}
+
+button:active{
+	transform: scale(0.95);
 }
 
 input,textarea {

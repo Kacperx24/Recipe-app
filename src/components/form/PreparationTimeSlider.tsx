@@ -7,7 +7,6 @@ import Paragraph from '../ui/Paragraph'
 interface Props {
 	register: UseFormRegister<FormData>
 	validation: RegisterOptions
-	errors: Record<string, any>
 	watch: UseFormWatch<FormData>
 }
 
@@ -27,6 +26,7 @@ const StyledParagraph = styled(Paragraph)`
 const RangeInput = styled.input`
 	margin: 24px 0 12px;
 	-webkit-appearance: none;
+	-moz-appearance: none;
 	width: 240px;
 	height: 4px;
 	background-color: #43cb9f;
@@ -56,16 +56,7 @@ const RangeInput = styled.input`
 	}
 `
 
-const ErrorMessage = styled.span`
-	// Styluj komunikat o błędzie
-`
-
-const PreparationTimeSlider: FC<Props> = ({
-	register,
-	validation,
-	errors,
-	watch,
-}) => {
+const PreparationTimeSlider: FC<Props> = ({ register, validation, watch }) => {
 	const preparationTime = watch('preparationTime', 5)
 
 	return (
@@ -80,9 +71,6 @@ const PreparationTimeSlider: FC<Props> = ({
 				step='5'
 				{...register('preparationTime', validation)}
 			/>
-			{errors.preparationTime && (
-				<ErrorMessage>This field is required</ErrorMessage>
-			)}
 		</SliderWrapper>
 	)
 }

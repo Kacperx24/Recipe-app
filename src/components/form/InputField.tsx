@@ -26,7 +26,6 @@ const LabelsContainer = styled.div`
 		font-weight: 500;
 	}
 `
-const Label = styled.label``
 
 const Input = styled.input`
 	padding: 12px 16px;
@@ -55,7 +54,6 @@ const InputField: React.FC<Props> = ({ label, name, register, errors }) => {
 				<label>{label}</label>
 				<span>{errors[name]?.message}</span>
 			</LabelsContainer>
-			<Label></Label>
 			{name === 'description' ? (
 				<TextArea
 					{...register(name, { required: 'Description is required' })}

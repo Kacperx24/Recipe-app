@@ -8,18 +8,18 @@ import CountrySelect from '../components/form/CountrySelect'
 import { FormData } from '../types'
 import PreparationTimeSlider from '../components/form/PreparationTimeSlider'
 import SubmitButton from '../components/form/SubmitButton'
-import IngredientsList from '../components/form/IngredientsList'
+import IngredientsList from '../components/form/Ingredients'
 
 const Container = styled.div`
-	width: 90%;
-	max-width: 720px;
+	width: 94%;
+	max-width: 640px;
 	background-color: ${({ theme }) => theme.colors.primaryBg};
 	border-radius: 12px;
 	overflow: hidden;
 `
 
 const ContentWrapper = styled.div`
-	padding: 30px 30px;
+	padding: 30px 20px;
 	width: 100%;
 	overflow-y: auto;
 	max-height: 90vh;
@@ -77,7 +77,6 @@ const AddRecipeForm = () => {
 						<PreparationTimeSlider
 							register={register}
 							validation={{ required: true }}
-							errors={errors}
 							watch={watch}
 						/>
 

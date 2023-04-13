@@ -9,6 +9,9 @@ import { Country, FormData } from '../../types'
 
 const SelectWrapper = styled.div`
 	padding: 20px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `
 
 const CountriesWrapper = styled.div`
