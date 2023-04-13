@@ -8,6 +8,7 @@ import CountrySelect from '../components/form/CountrySelect'
 import { FormData } from '../types'
 import PreparationTimeSlider from '../components/form/PreparationTimeSlider'
 import SubmitButton from '../components/form/SubmitButton'
+import IngredientsList from '../components/form/IngredientsList'
 
 const Container = styled.div`
 	width: 90%;
@@ -80,13 +81,9 @@ const AddRecipeForm = () => {
 							watch={watch}
 						/>
 
-						{/* <label>
-							Ingredients (separate with commas)
-							<textarea {...register('ingredients', { required: true })} />
-							{errors.ingredients && <span>This field is required</span>}
-						</label>
+						<IngredientsList />
 
-						<label>
+						{/* <label>
 							Steps (one step per line)
 							<textarea {...register('steps', { required: true })} />
 							{errors.steps && <span>This field is required</span>}
