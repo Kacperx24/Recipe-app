@@ -7,7 +7,7 @@ import MainPage from './pages/MainPage'
 
 const GlobalStyle = createGlobalStyle`
 * {
-	font-family: Raleway;
+	font-family: Cabin;
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
@@ -32,6 +32,7 @@ input,textarea {
 	border: none;
 	border-radius: 8px;
 	font-weight: 500;
+	padding: 12px 16px;
 
 }
 a {

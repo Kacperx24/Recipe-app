@@ -6,6 +6,7 @@ import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form'
 import CountryButton from './CountryButton'
 import countries from '../../data/countries'
 import { Country, FormData } from '../../types'
+import ErrorMessage from '../ui/ErrorMessage'
 
 const SelectWrapper = styled.div`
 	padding: 20px 0;
@@ -59,6 +60,7 @@ const CountrySelect = ({ setValue, errors, register }: CountrySelectProps) => {
 					/>
 				))}
 			</CountriesWrapper>
+			{errors.country && <ErrorMessage>{errors.country.message}</ErrorMessage>}
 		</SelectWrapper>
 	)
 }

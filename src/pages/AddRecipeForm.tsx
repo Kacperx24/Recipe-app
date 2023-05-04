@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FormEvent, KeyboardEvent } from 'react'
 import Modal from '../components/ui/Modal'
 import styled from 'styled-components'
 import ModalTitle from '../components/ui/ModalTitle'
@@ -8,7 +8,9 @@ import CountrySelect from '../components/form/CountrySelect'
 import { FormData } from '../types'
 import PreparationTimeSlider from '../components/form/PreparationTimeSlider'
 import SubmitButton from '../components/form/SubmitButton'
-import IngredientsList from '../components/form/Ingredients'
+import Ingredients from '../components/form/Ingredients'
+import Steps from '../components/form/Steps'
+import { handleEnterClick } from '../utils'
 
 const Container = styled.div`
 	width: 94%;
@@ -46,6 +48,11 @@ const AddRecipeForm = () => {
 		formState: { errors },
 	} = useForm<FormData>()
 
+	const handleFormSubmit = (e: FormEvent) => {
+		e.preventDefault()
+		handleSubmit(onSubmit)()
+	}
+
 	const onSubmit = (data: FormData) => {
 		console.log(data)
 	}
@@ -55,7 +62,12 @@ const AddRecipeForm = () => {
 			<Container>
 				<ContentWrapper>
 					<ModalTitle>Add recipe</ModalTitle>
-					<Form onSubmit={handleSubmit(onSubmit)}>
+					<Form
+						onKeyDown={(e: KeyboardEvent<HTMLFormElement>) =>
+							handleEnterClick(e)
+						}
+						onSubmit={e => handleFormSubmit(e)}
+					>
 						<InputField
 							label='Title'
 							name='title'
@@ -80,14 +92,13 @@ const AddRecipeForm = () => {
 							watch={watch}
 						/>
 
-						<IngredientsList />
+						<Ingredients
+							setValue={setValue}
+							register={register}
+							errors={errors}
+						/>
 
-						{/* <label>
-							Steps (one step per line)
-							<textarea {...register('steps', { required: true })} />
-							{errors.steps && <span>This field is required</span>}
-						</label> */}
-
+						<Steps setValue={setValue} register={register} errors={errors} />
 						<SubmitButton type='submit'>Add recipe</SubmitButton>
 					</Form>
 				</ContentWrapper>

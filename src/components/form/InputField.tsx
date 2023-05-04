@@ -1,6 +1,7 @@
 import React from 'react'
 import { FieldValues } from 'react-hook-form'
 import styled from 'styled-components'
+import ErrorMessage from '../ui/ErrorMessage'
 
 const InputWrapper = styled.div`
 	display: flex;
@@ -19,21 +20,13 @@ const LabelsContainer = styled.div`
 		font-size: 15px;
 		color: ${({ theme }) => theme.colors.primaryText};
 	}
-
-	span {
-		color: red;
-		font-size: 14px;
-		font-weight: 500;
-	}
 `
 
 const Input = styled.input`
-	padding: 12px 16px;
 	width: 100%;
 `
 const TextArea = styled.textarea`
 	resize: none;
-	padding: 12px 16px;
 	width: 100%;
 `
 
@@ -52,7 +45,7 @@ const InputField: React.FC<Props> = ({ label, name, register, errors }) => {
 			<LabelsContainer>
 				{' '}
 				<label>{label}</label>
-				<span>{errors[name]?.message}</span>
+				<ErrorMessage>{errors[name]?.message}</ErrorMessage>
 			</LabelsContainer>
 			{name === 'description' ? (
 				<TextArea

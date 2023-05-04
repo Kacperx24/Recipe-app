@@ -1,112 +1,54 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import UnitSelect from './UnitSelect'
-import { Ingredient } from '../../types'
-import { v4 as uuid } from 'uuid'
+import { FormData, Ingredient } from '../../types'
 import IngredientsList from './IngredientsList'
+import IngredientForm from './IngredientForm'
+import Paragraph from '../ui/Paragraph'
+import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form'
+import ErrorMessage from '../ui/ErrorMessage'
+
+interface IngredientsProps {
+	setValue: UseFormSetValue<FormData>
+	register: UseFormRegister<FormData>
+	errors: FieldValues['errors']
+}
 
 const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	margin: 40px 0;
 	width: 100%;
 `
 
-const InputContainer = styled.div`
-	display: flex;
-	margin: 0 auto;
-	justify-content: center;
-	gap: 12px;
-	height: 40px;
-	max-width: 100%;
-`
-
-const NameInput = styled.input`
-	padding: 12px;
-	flex: 1;
-	font-size: 15px;
-	font-weight: 600;
-	min-width: 0;
-	max-width: 200px;
-`
-
-const QuantityInput = styled.input`
-	padding: 12px 6px;
-	width: 50px;
-	font-weight: 600;
-	font-size: 15px;
-	text-align: center;
-	&::-webkit-inner-spin-button,
-	&::-webkit-outer-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
-	}
-
-	&[type='number'] {
-		-moz-appearance: textfield;
-		appearance: textfield;
-	}
-`
-
-const AddButton = styled.button`
-	height: 100%;
-	padding: 0 16px;
-	background-color: ${({ theme }) => theme.colors.successBg};
-	color: ${({ theme }) => theme.colors.altText};
-`
-
-const Ingredients = () => {
+const Ingredients = ({ setValue, register, errors }: IngredientsProps) => {
 	const [ingredients, setIngredients] = useState<Ingredient[]>([])
-	const [currentIngredient, setCurrentIngredient] = useState<Ingredient>({
-		unit: 'g',
-		quantity: '',
-		name: '',
-		id: '',
-	})
-	const addIngredient = () => {
-		const { unit, quantity, name } = currentIngredient
-		if (unit && quantity && name) {
-			setIngredients(prev => [...prev, { ...currentIngredient, id: uuid() }])
-			setCurrentIngredient(prev => ({
-				...prev,
-				quantity: '',
-				name: '',
-				id: '',
-			}))
-		}
-	}
 
 	const removeIngredient = (id: string) => {
 		setIngredients(prev => prev.filter(item => item.id !== id))
 	}
 
-	const setUnit = (unit: string) => {
-		setCurrentIngredient(prev => ({ ...prev, unit }))
-	}
-
-	const setQuantity = (quantity: string) => {
-		setCurrentIngredient(prev => ({ ...prev, quantity }))
-	}
-	const setName = (name: string) => {
-		setCurrentIngredient(prev => ({ ...prev, name }))
-	}
+	useEffect(() => {
+		setValue('ingredients', ingredients)
+	}, [ingredients])
 
 	return (
 		<Container>
-			<InputContainer>
-				<QuantityInput
-					value={currentIngredient.quantity}
-					onChange={e => setQuantity(e.target.value)}
-					type='number'
-				/>
-				<UnitSelect setUnit={setUnit} />
-				<NameInput
-					value={currentIngredient.name}
-					onChange={e => setName(e.target.value)}
-				/>{' '}
-				<AddButton type='button' onClick={addIngredient}>
-					Add
-				</AddButton>
-			</InputContainer>
-			<IngredientsList />
+			<input
+				type='hidden'
+				{...register('ingredients', { required: 'Ingredients are required' })}
+			/>
+			<Paragraph fontSize={18} fontWeight={600}>
+				Add ingredients
+			</Paragraph>
+			<IngredientForm setIngredients={setIngredients} />
+			<IngredientsList
+				ingredients={ingredients}
+				removeIngredient={removeIngredient}
+			/>
+			{errors.ingredients && !ingredients.length && (
+				<ErrorMessage>{errors.ingredients.message}</ErrorMessage>
+			)}
 		</Container>
 	)
 }

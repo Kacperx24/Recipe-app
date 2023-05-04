@@ -3,8 +3,8 @@ export interface FormData {
 	description: string
 	country: string
 	preparationTime: number
-	ingredients: string[]
-	steps: string[]
+	ingredients: Ingredient[]
+	steps: Step[]
 }
 
 export interface Country {
@@ -16,6 +16,12 @@ export interface Country {
 export interface Ingredient {
 	unit: string
 	quantity: string
+	name: string
+	id: string
+}
+
+export interface Step {
+	point: number
 	name: string
 	id: string
 }

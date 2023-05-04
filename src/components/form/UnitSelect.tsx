@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
 import styled, { css } from 'styled-components'
 import Paragraph from '../ui/Paragraph'
@@ -57,8 +57,11 @@ const UnitSelect: FC<UnitSelectProps> = ({ setUnit }) => {
 
 	const changeUnitIndex = () => {
 		setSelectedUnitIndex(prev => (prev + 1) % UNITS.length)
-		setUnit(UNITS[selectedUnitIndex])
 	}
+
+	useEffect(() => {
+		setUnit(UNITS[selectedUnitIndex])
+	}, [selectedUnitIndex])
 
 	return (
 		<Container>

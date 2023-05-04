@@ -32,6 +32,7 @@ const RangeInput = styled.input`
 	background-color: #43cb9f;
 	outline: none;
 	border-radius: 2px;
+	padding: 0;
 
 	&::-webkit-slider-thumb {
 		-webkit-appearance: none;
