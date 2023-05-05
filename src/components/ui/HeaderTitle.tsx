@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-interface Props {
+interface HeaderTitleProps {
 	color?: 'default' | 'light'
 	fontWeight?: 400 | 500 | 600 | 700 | 800
 }
 
-const Title = styled.h1<Props>`
+const Title = styled.h1<HeaderTitleProps>`
 	color: ${({ theme }) => theme.colors.primaryText};
 	font-size: 44px;
 	font-weight: 700;

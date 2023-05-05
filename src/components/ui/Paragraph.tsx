@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-interface Props {
+interface ParagraphProps {
 	color?: 'default' | 'light'
 	fontWeight?: 400 | 500 | 600 | 700 | 800
 	fontSize?: number
 }
 
-const Paragraph = styled.p<Props>`
+const Paragraph = styled.p<ParagraphProps>`
 	color: ${({ color, theme }) =>
 		color === 'light' ? theme.colors.lightText : theme.colors.primaryText};
 	font-weight: ${({ fontWeight }) => fontWeight};

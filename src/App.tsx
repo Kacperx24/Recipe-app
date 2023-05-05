@@ -4,6 +4,7 @@ import { theme } from './theme'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import AddRecipeForm from './pages/AddRecipeForm'
 import MainPage from './pages/MainPage'
+import { QueryClientProvider, QueryClient } from 'react-query'
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -72,11 +73,15 @@ const router = createBrowserRouter([
 	},
 ])
 
+const queryClient = new QueryClient()
+
 function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
-			<RouterProvider router={router} />
+			<QueryClientProvider client={queryClient}>
+				<RouterProvider router={router} />
+			</QueryClientProvider>
 		</ThemeProvider>
 	)
 }

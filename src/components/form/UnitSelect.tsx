@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
 import styled, { css } from 'styled-components'
-import Paragraph from '../ui/Paragraph'
+import { Paragraph } from '../ui'
 import { UNITS } from '../../data/constants'
 
 interface UnitSelectProps {

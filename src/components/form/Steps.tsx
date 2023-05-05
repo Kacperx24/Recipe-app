@@ -1,17 +1,16 @@
 import { FC, KeyboardEvent, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Paragraph from '../ui/Paragraph'
-import AddButton from '../ui/AddButton'
+
 import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form'
-import { FormData, Step } from '../../types'
-import StepsList from './StepsList'
+import { RecipeFormData, Step } from '../../types'
+import { StepsList } from './index'
 import { v4 as uuid } from 'uuid'
 import { handleEnterClick } from '../../utils'
-import ErrorMessage from '../ui/ErrorMessage'
+import { ErrorMessage, Paragraph, AddButton } from '../ui'
 
 interface StepsProps {
-	setValue: UseFormSetValue<FormData>
-	register: UseFormRegister<FormData>
+	setValue: UseFormSetValue<RecipeFormData>
+	register: UseFormRegister<RecipeFormData>
 	errors: FieldValues['errors']
 }
 

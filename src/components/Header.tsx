@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Paragraph from './ui/Paragraph'
-import HeaderTitle from './ui/HeaderTitle'
+import { Paragraph, HeaderTitle } from './ui'
 import { Plus } from 'lucide-react'
 import { Link } from 'react-router-dom'
 

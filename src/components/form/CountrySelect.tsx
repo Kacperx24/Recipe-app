@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import Paragraph from '../ui/Paragraph'
 
 import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form'
-import CountryButton from './CountryButton'
+import { CountryButton } from './index'
 import countries from '../../data/countries'
-import { Country, FormData } from '../../types'
-import ErrorMessage from '../ui/ErrorMessage'
+import { Country, RecipeFormData } from '../../types'
+import { ErrorMessage, Paragraph } from '../ui'
 
 const SelectWrapper = styled.div`
 	padding: 20px 0;
@@ -26,8 +25,8 @@ const CountriesWrapper = styled.div`
 `
 
 interface CountrySelectProps {
-	setValue: UseFormSetValue<FormData>
-	register: UseFormRegister<FormData>
+	setValue: UseFormSetValue<RecipeFormData>
+	register: UseFormRegister<RecipeFormData>
 	errors: FieldValues['errors']
 }
 

@@ -1,8 +1,7 @@
 import React, { FC } from 'react'
 import { Ingredient } from '../../types'
 import styled from 'styled-components'
-import Paragraph from '../ui/Paragraph'
-import RemoveButton from '../ui/RemoveButton'
+import { Paragraph, RemoveButton } from '../ui'
 
 interface IngredientsListProps {
 	ingredients: Ingredient[]
@@ -48,7 +47,7 @@ const IngredientsList: FC<IngredientsListProps> = ({
 		<Container>
 			<ListContainer>
 				{ingredients.map(({ name, unit, quantity, id }) => (
-					<ListItem>
+					<ListItem key={id}>
 						<RemoveButton onClick={() => removeIngredient(id)} />
 						<StyledParagraph>
 							<span>{quantity}</span>

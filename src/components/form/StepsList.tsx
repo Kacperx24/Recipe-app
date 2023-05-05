@@ -1,8 +1,7 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
+import React, { FC, useState } from 'react'
 import { Step } from '../../types'
 import styled from 'styled-components'
-import Paragraph from '../ui/Paragraph'
-import RemoveButton from '../ui/RemoveButton'
+import { Paragraph, RemoveButton } from '../ui'
 
 interface StepsListProps {
 	steps: Step[]
@@ -55,7 +54,7 @@ const StepsList: FC<StepsListProps> = ({ steps, removeStep, editStep }) => {
 	return (
 		<List>
 			{steps.map(({ name, point, id }) => (
-				<StepItem>
+				<StepItem key={id}>
 					<RemoveButton onClick={() => removeStep(id)} />
 
 					<span>{point}.</span>

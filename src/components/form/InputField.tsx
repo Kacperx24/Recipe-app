@@ -1,7 +1,7 @@
 import React from 'react'
 import { FieldValues } from 'react-hook-form'
 import styled from 'styled-components'
-import ErrorMessage from '../ui/ErrorMessage'
+import { ErrorMessage } from '../ui'
 
 const InputWrapper = styled.div`
 	display: flex;
@@ -30,7 +30,7 @@ const TextArea = styled.textarea`
 	width: 100%;
 `
 
-type Props = {
+type InputFieldProps = {
 	label: string
 	name: string
 	register: (...args: any[]) => any
@@ -38,8 +38,12 @@ type Props = {
 	required?: boolean
 }
 
-const InputField: React.FC<Props> = ({ label, name, register, errors }) => {
-	console.log(errors)
+const InputField: React.FC<InputFieldProps> = ({
+	label,
+	name,
+	register,
+	errors,
+}) => {
 	return (
 		<InputWrapper>
 			<LabelsContainer>

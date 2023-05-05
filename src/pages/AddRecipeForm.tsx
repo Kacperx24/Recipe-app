@@ -1,16 +1,20 @@
 import React, { FormEvent, KeyboardEvent } from 'react'
-import Modal from '../components/ui/Modal'
 import styled from 'styled-components'
-import ModalTitle from '../components/ui/ModalTitle'
 import { useForm } from 'react-hook-form'
-import InputField from '../components/form/InputField'
-import CountrySelect from '../components/form/CountrySelect'
-import { FormData } from '../types'
-import PreparationTimeSlider from '../components/form/PreparationTimeSlider'
-import SubmitButton from '../components/form/SubmitButton'
-import Ingredients from '../components/form/Ingredients'
-import Steps from '../components/form/Steps'
+import { RecipeFormData } from '../types'
+import {
+	Steps,
+	InputField,
+	CountrySelect,
+	PreparationTimeSlider,
+	SubmitButton,
+	Ingredients,
+} from '../components/form'
 import { handleEnterClick } from '../utils'
+import { GoBackButton, Modal, ModalTitle } from '../components/ui'
+import { useMutation, useQueryClient } from 'react-query'
+import { createRecipe } from '../api'
+import { v4 as uuid } from 'uuid'
 
 const Container = styled.div`
 	width: 94%;
@@ -21,6 +25,7 @@ const Container = styled.div`
 `
 
 const ContentWrapper = styled.div`
+	position: relative;
 	padding: 30px 20px;
 	width: 100%;
 	overflow-y: auto;
@@ -39,6 +44,12 @@ const Form = styled.form`
 	gap: 8px;
 `
 
+const GoBackWrapper = styled.div`
+	position: absolute;
+	left: 20px;
+	top: 20px;
+`
+
 const AddRecipeForm = () => {
 	const {
 		register,
@@ -46,21 +57,34 @@ const AddRecipeForm = () => {
 		setValue,
 		watch,
 		formState: { errors },
-	} = useForm<FormData>()
+	} = useForm<RecipeFormData>()
+
+	const queryClient = useQueryClient()
+
+	const mutation = useMutation({
+		mutationFn: createRecipe,
+		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ['recipes'] })
+		},
+	})
 
 	const handleFormSubmit = (e: FormEvent) => {
 		e.preventDefault()
 		handleSubmit(onSubmit)()
 	}
 
-	const onSubmit = (data: FormData) => {
+	const onSubmit = (data: RecipeFormData) => {
 		console.log(data)
+		mutation.mutate({ ...data, id: uuid() })
 	}
 
 	return (
 		<Modal>
 			<Container>
 				<ContentWrapper>
+					<GoBackWrapper>
+						<GoBackButton />
+					</GoBackWrapper>
 					<ModalTitle>Add recipe</ModalTitle>
 					<Form
 						onKeyDown={(e: KeyboardEvent<HTMLFormElement>) =>

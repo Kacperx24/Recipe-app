@@ -1,4 +1,4 @@
-export interface FormData {
+export interface RecipeFormData {
 	title: string
 	description: string
 	country: string

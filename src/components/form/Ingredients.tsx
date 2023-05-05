@@ -1,15 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, FC } from 'react'
 import styled from 'styled-components'
-import { FormData, Ingredient } from '../../types'
-import IngredientsList from './IngredientsList'
-import IngredientForm from './IngredientForm'
-import Paragraph from '../ui/Paragraph'
+import { RecipeFormData, Ingredient } from '../../types'
 import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form'
-import ErrorMessage from '../ui/ErrorMessage'
+import { ErrorMessage, Paragraph } from '../ui'
+import { IngredientsList, IngredientForm } from './index'
 
 interface IngredientsProps {
-	setValue: UseFormSetValue<FormData>
-	register: UseFormRegister<FormData>
+	setValue: UseFormSetValue<RecipeFormData>
+	register: UseFormRegister<RecipeFormData>
 	errors: FieldValues['errors']
 }
 
@@ -21,7 +19,7 @@ const Container = styled.div`
 	width: 100%;
 `
 
-const Ingredients = ({ setValue, register, errors }: IngredientsProps) => {
+const Ingredients: FC<IngredientsProps> = ({ setValue, register, errors }) => {
 	const [ingredients, setIngredients] = useState<Ingredient[]>([])
 
 	const removeIngredient = (id: string) => {

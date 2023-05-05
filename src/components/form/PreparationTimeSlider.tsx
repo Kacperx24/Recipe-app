@@ -1,13 +1,13 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 import { RegisterOptions, UseFormRegister, UseFormWatch } from 'react-hook-form'
-import { FormData } from '../../types'
-import Paragraph from '../ui/Paragraph'
+import { RecipeFormData } from '../../types'
+import { Paragraph } from '../ui'
 
-interface Props {
-	register: UseFormRegister<FormData>
+interface PreparationTimeSliderProps {
+	register: UseFormRegister<RecipeFormData>
 	validation: RegisterOptions
-	watch: UseFormWatch<FormData>
+	watch: UseFormWatch<RecipeFormData>
 }
 
 const SliderWrapper = styled.div`
@@ -25,6 +25,7 @@ const StyledParagraph = styled(Paragraph)`
 
 const RangeInput = styled.input`
 	margin: 24px 0 12px;
+	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	width: 240px;
@@ -35,6 +36,7 @@ const RangeInput = styled.input`
 	padding: 0;
 
 	&::-webkit-slider-thumb {
+		appearance: none;
 		-webkit-appearance: none;
 		width: 20px;
 		height: 20px;
@@ -57,7 +59,11 @@ const RangeInput = styled.input`
 	}
 `
 
-const PreparationTimeSlider: FC<Props> = ({ register, validation, watch }) => {
+const PreparationTimeSlider: FC<PreparationTimeSliderProps> = ({
+	register,
+	validation,
+	watch,
+}) => {
 	const preparationTime = watch('preparationTime', 5)
 
 	return (
