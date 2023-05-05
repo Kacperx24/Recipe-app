@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
@@ -20,7 +20,7 @@ const StyledButton = styled.button`
 	}
 `
 
-const GoBackButton = ({ onClick }: GoBackButtonProps) => {
+const GoBackButton: FC<GoBackButtonProps> = ({ onClick }) => {
 	const navigate = useNavigate()
 
 	return (
