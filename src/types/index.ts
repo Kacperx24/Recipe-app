@@ -7,6 +7,16 @@ export interface RecipeFormData {
 	steps: Step[]
 }
 
+export interface Recipe {
+	title: string
+	description: string
+	country: string
+	preparationTime: number
+	ingredients: Ingredient[]
+	steps: Step[]
+	id: string
+}
+
 export interface Country {
 	value: string
 	label: string

@@ -1,9 +1,5 @@
 import axios from 'axios'
-import { RecipeFormData } from '../types'
-
-interface RecipeFormDataWithId extends RecipeFormData {
-	id: string
-}
+import { Recipe } from '../types'
 
 export const getRecipes = async () => {
 	try {
@@ -15,7 +11,7 @@ export const getRecipes = async () => {
 	}
 }
 
-export const createRecipe = async (data: RecipeFormDataWithId) => {
+export const createRecipe = async (data: Recipe) => {
 	try {
 		axios.post('http://localhost:5000/recipes', data)
 	} catch (error) {
