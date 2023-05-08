@@ -34,6 +34,7 @@ const ListItem = styled.div`
 `
 
 const StyledParagraph = styled(Paragraph)`
+	text-align: left;
 	span {
 		font-size: 20px;
 	}

@@ -52,15 +52,6 @@ const Steps: FC<StepsProps> = ({ setValue, register, errors }) => {
 		setSteps(updatedSteps)
 	}
 
-	const handleEditStep = (id: string, newName: string) => {
-		const index = steps.findIndex(item => item.id === id)
-		if (index !== -1) {
-			const updatedSteps = [...steps]
-			updatedSteps[index].name = newName
-			setSteps(updatedSteps)
-		}
-	}
-
 	const handleAddStep = () => {
 		if (inputValue.trim()) {
 			setSteps(prev => [
@@ -95,11 +86,7 @@ const Steps: FC<StepsProps> = ({ setValue, register, errors }) => {
 					Add
 				</AddButton>
 			</InputContainer>
-			<StepsList
-				steps={steps}
-				onRemoveStep={handleRemoveStep}
-				onEditStep={handleEditStep}
-			/>
+			<StepsList steps={steps} onRemoveStep={handleRemoveStep} />
 			{errors.steps && !steps.length && (
 				<ErrorMessage>{errors.steps.message}</ErrorMessage>
 			)}
