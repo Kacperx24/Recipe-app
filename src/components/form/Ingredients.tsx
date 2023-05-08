@@ -22,13 +22,13 @@ const Container = styled.div`
 const Ingredients: FC<IngredientsProps> = ({ setValue, register, errors }) => {
 	const [ingredients, setIngredients] = useState<Ingredient[]>([])
 
-	const removeIngredient = (id: string) => {
+	const handleRemoveIngredient = (id: string) => {
 		setIngredients(prev => prev.filter(item => item.id !== id))
 	}
 
 	useEffect(() => {
 		setValue('ingredients', ingredients)
-	}, [ingredients])
+	}, [ingredients, setValue])
 
 	return (
 		<Container>
@@ -42,7 +42,7 @@ const Ingredients: FC<IngredientsProps> = ({ setValue, register, errors }) => {
 			<IngredientForm setIngredients={setIngredients} />
 			<IngredientsList
 				ingredients={ingredients}
-				removeIngredient={removeIngredient}
+				onRemoveIngredient={handleRemoveIngredient}
 			/>
 			{errors.ingredients && !ingredients.length && (
 				<ErrorMessage>{errors.ingredients.message}</ErrorMessage>

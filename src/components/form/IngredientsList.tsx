@@ -5,7 +5,7 @@ import { Paragraph, RemoveButton } from '../ui'
 
 interface IngredientsListProps {
 	ingredients: Ingredient[]
-	removeIngredient: (id: string) => void
+	onRemoveIngredient: (id: string) => void
 }
 
 const Container = styled.div`
@@ -41,14 +41,14 @@ const StyledParagraph = styled(Paragraph)`
 
 const IngredientsList: FC<IngredientsListProps> = ({
 	ingredients,
-	removeIngredient,
+	onRemoveIngredient,
 }) => {
 	return (
 		<Container>
 			<ListContainer>
 				{ingredients.map(({ name, unit, quantity, id }) => (
 					<ListItem key={id}>
-						<RemoveButton onClick={() => removeIngredient(id)} />
+						<RemoveButton onClick={() => onRemoveIngredient(id)} />
 						<StyledParagraph>
 							<span>{quantity}</span>
 							{unit} of {name}

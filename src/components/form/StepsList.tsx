@@ -5,8 +5,8 @@ import { Paragraph, RemoveButton } from '../ui'
 
 interface StepsListProps {
 	steps: Step[]
-	removeStep: (id: string) => void
-	editStep: (id: string, newName: string) => void
+	onRemoveStep: (id: string) => void
+	onEditStep: (id: string, newName: string) => void
 }
 
 const List = styled.div`
@@ -38,41 +38,41 @@ const EditStepInput = styled.input`
 `
 const StepDescription = styled(Paragraph)``
 
-const StepsList: FC<StepsListProps> = ({ steps, removeStep, editStep }) => {
-	const [inputValue, setInputValue] = useState('')
-	const [editingStepId, setEditingStepId] = useState<string | null>(null)
-	const startEditingStep = (id: string, name: string) => {
-		setEditingStepId(id)
-		setInputValue(name)
+const StepsList: FC<StepsListProps> = ({ steps, onRemoveStep, onEditStep }) => {
+	const [editedStepValue, setEditedStepValue] = useState('')
+	const [editedStepId, setEditedStepId] = useState<string | null>(null)
+	const handleStartEditingStep = (id: string, name: string) => {
+		setEditedStepId(id)
+		setEditedStepValue(name)
 	}
 
-	const stopEditingStep = (id: string) => {
-		editStep(id, inputValue)
-		setEditingStepId(null)
+	const handleStopEditingStep = (id: string) => {
+		onEditStep(id, editedStepValue)
+		setEditedStepId(null)
 	}
 
 	return (
 		<List>
 			{steps.map(({ name, point, id }) => (
 				<StepItem key={id}>
-					<RemoveButton onClick={() => removeStep(id)} />
+					<RemoveButton onClick={() => onRemoveStep(id)} />
 
 					<span>{point}.</span>
-					{editingStepId === id ? (
+					{editedStepId === id ? (
 						<EditStepInput
-							value={inputValue}
-							onBlur={() => stopEditingStep(id)}
-							onChange={e => setInputValue(e.target.value)}
+							value={editedStepValue}
+							onBlur={() => handleStopEditingStep(id)}
+							onChange={e => setEditedStepValue(e.target.value)}
 							onKeyDown={e => {
 								if (e.key === 'Enter') {
-									stopEditingStep(id)
+									handleStopEditingStep(id)
 								}
 							}}
 						/>
 					) : (
 						<StepDescription
 							fontWeight={500}
-							onMouseOver={() => startEditingStep(id, name)}
+							onMouseOver={() => handleStartEditingStep(id, name)}
 						>
 							{name}
 						</StepDescription>

@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC, useState } from 'react'
 import styled from 'styled-components'
 import { UnitSelect } from './index'
 import { v4 as uuid } from 'uuid'
@@ -57,9 +57,9 @@ const IngredientForm: FC<IngredientFormProps> = ({ setIngredients }) => {
 		name: '',
 		id: '',
 	})
-	const [wasSubmitTry, setWasSubmitTry] = useState(false)
+	const [isSubmitAttempted, setIsSubmitAttempted] = useState(false)
 
-	const addIngredient = () => {
+	const handleAddIngredient = () => {
 		const { unit, quantity, name } = currentIngredient
 		if (unit && quantity && name) {
 			setIngredients(prev => [...prev, { ...currentIngredient, id: uuid() }])
@@ -69,40 +69,40 @@ const IngredientForm: FC<IngredientFormProps> = ({ setIngredients }) => {
 				name: '',
 				id: '',
 			}))
-			setWasSubmitTry(false)
+			setIsSubmitAttempted(false)
 			return
 		}
-		setWasSubmitTry(true)
+		setIsSubmitAttempted(true)
 	}
 
-	const setUnit = (unit: string) => {
+	const handleSetUnit = (unit: string) => {
 		setCurrentIngredient(prev => ({ ...prev, unit }))
 	}
 
-	const setQuantity = (quantity: string) => {
+	const handleSetQuantity = (quantity: string) => {
 		setCurrentIngredient(prev => ({ ...prev, quantity }))
 	}
-	const setName = (name: string) => {
+	const handleSetName = (name: string) => {
 		setCurrentIngredient(prev => ({ ...prev, name }))
 	}
 
 	return (
 		<InputContainer>
 			<QuantityInput
-				error={wasSubmitTry && !currentIngredient.quantity.length}
+				error={isSubmitAttempted && !currentIngredient.quantity.length}
 				value={currentIngredient.quantity}
-				onChange={e => setQuantity(e.target.value)}
+				onChange={e => handleSetQuantity(e.target.value)}
 				type='number'
-				onKeyDown={e => handleEnterClick(e, addIngredient)}
+				onKeyDown={e => handleEnterClick(e, handleAddIngredient)}
 			/>
-			<UnitSelect setUnit={setUnit} />
+			<UnitSelect setUnit={handleSetUnit} />
 			<NameInput
-				error={wasSubmitTry && !currentIngredient.name.length}
+				error={isSubmitAttempted && !currentIngredient.name.length}
 				value={currentIngredient.name}
-				onChange={e => setName(e.target.value)}
-				onKeyDown={e => handleEnterClick(e, addIngredient)}
+				onChange={e => handleSetName(e.target.value)}
+				onKeyDown={e => handleEnterClick(e, handleAddIngredient)}
 			/>{' '}
-			<AddButton type='button' onClick={addIngredient}>
+			<AddButton type='button' onClick={handleAddIngredient}>
 				Add
 			</AddButton>
 		</InputContainer>

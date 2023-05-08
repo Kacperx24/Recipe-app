@@ -43,7 +43,7 @@ const Steps: FC<StepsProps> = ({ setValue, register, errors }) => {
 	const [inputValue, setInputValue] = useState('')
 	const [steps, setSteps] = useState<Step[]>([])
 
-	const removeStep = (id: string) => {
+	const handleRemoveStep = (id: string) => {
 		const updatedSteps = steps
 			.filter(item => item.id !== id)
 			.map((step, index) => {
@@ -52,7 +52,7 @@ const Steps: FC<StepsProps> = ({ setValue, register, errors }) => {
 		setSteps(updatedSteps)
 	}
 
-	const editStep = (id: string, newName: string) => {
+	const handleEditStep = (id: string, newName: string) => {
 		const index = steps.findIndex(item => item.id === id)
 		if (index !== -1) {
 			const updatedSteps = [...steps]
@@ -61,7 +61,7 @@ const Steps: FC<StepsProps> = ({ setValue, register, errors }) => {
 		}
 	}
 
-	const addStep = () => {
+	const handleAddStep = () => {
 		if (inputValue.trim()) {
 			setSteps(prev => [
 				...prev,
@@ -73,7 +73,7 @@ const Steps: FC<StepsProps> = ({ setValue, register, errors }) => {
 
 	useEffect(() => {
 		setValue('steps', steps)
-	}, [steps])
+	}, [steps, setValue])
 	return (
 		<Container>
 			<input
@@ -88,14 +88,18 @@ const Steps: FC<StepsProps> = ({ setValue, register, errors }) => {
 					value={inputValue}
 					onChange={e => setInputValue(e.target.value)}
 					onKeyDown={(e: KeyboardEvent<HTMLInputElement>) =>
-						handleEnterClick(e, addStep)
+						handleEnterClick(e, handleAddStep)
 					}
 				/>
-				<AddButton onClick={addStep} type='button'>
+				<AddButton onClick={handleAddStep} type='button'>
 					Add
 				</AddButton>
 			</InputContainer>
-			<StepsList steps={steps} removeStep={removeStep} editStep={editStep} />
+			<StepsList
+				steps={steps}
+				onRemoveStep={handleRemoveStep}
+				onEditStep={handleEditStep}
+			/>
 			{errors.steps && !steps.length && (
 				<ErrorMessage>{errors.steps.message}</ErrorMessage>
 			)}
