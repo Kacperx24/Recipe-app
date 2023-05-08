@@ -61,7 +61,7 @@ const UnitSelect: FC<UnitSelectProps> = ({ setUnit }) => {
 
 	useEffect(() => {
 		setUnit(UNITS[selectedUnitIndex])
-	}, [selectedUnitIndex, setUnit])
+	}, [selectedUnitIndex])
 
 	return (
 		<Container>
