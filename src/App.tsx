@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import AddRecipeForm from './pages/AddRecipeForm'
 import MainPage from './pages/MainPage'
 import { QueryClientProvider, QueryClient } from 'react-query'
+import Contexts from './Contexts'
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -78,7 +79,9 @@ function App() {
 		<ThemeProvider theme={theme}>
 			<GlobalStyle />
 			<QueryClientProvider client={queryClient}>
-				<RouterProvider router={router} />
+				<Contexts>
+					<RouterProvider router={router} />
+				</Contexts>
 			</QueryClientProvider>
 		</ThemeProvider>
 	)

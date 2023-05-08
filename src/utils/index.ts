@@ -9,3 +9,16 @@ export const handleEnterClick = (
 		if (func) func()
 	}
 }
+
+export const getBackgroundColor = (type: 'success' | 'error' | 'info') => {
+	switch (type) {
+		case 'success':
+			return 'successBg'
+		case 'error':
+			return 'errorBg'
+		case 'info':
+			return 'infoBg'
+		default:
+			return 'successBg'
+	}
+}

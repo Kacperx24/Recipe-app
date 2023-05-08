@@ -1,7 +1,6 @@
-import React, { FormEvent, KeyboardEvent } from 'react'
+import React, { KeyboardEvent } from 'react'
 import styled from 'styled-components'
-import { useForm } from 'react-hook-form'
-import { RecipeFormData } from '../types'
+
 import {
 	Steps,
 	InputField,
@@ -12,9 +11,8 @@ import {
 } from '../components/form'
 import { handleEnterClick } from '../utils'
 import { GoBackButton, Modal, ModalTitle } from '../components/ui'
-import { useMutation, useQueryClient } from 'react-query'
-import { createRecipe } from '../api'
-import { v4 as uuid } from 'uuid'
+
+import useAddRecipeForm from '../hooks/useAddRecipeForm'
 
 const Container = styled.div`
 	width: 94%;
@@ -51,32 +49,7 @@ const GoBackWrapper = styled.div`
 `
 
 const AddRecipeForm = () => {
-	const {
-		register,
-		handleSubmit,
-		setValue,
-		watch,
-		formState: { errors },
-	} = useForm<RecipeFormData>()
-
-	const queryClient = useQueryClient()
-
-	const mutation = useMutation({
-		mutationFn: createRecipe,
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: ['recipes'] })
-		},
-	})
-
-	const handleFormSubmit = (e: FormEvent) => {
-		e.preventDefault()
-		handleSubmit(onSubmit)()
-	}
-
-	const onSubmit = (data: RecipeFormData) => {
-		console.log(data)
-		mutation.mutate({ ...data, id: uuid() })
-	}
+	const { register, errors, handleSubmit, setValue, watch } = useAddRecipeForm()
 
 	return (
 		<Modal>
@@ -90,7 +63,7 @@ const AddRecipeForm = () => {
 						onKeyDown={(e: KeyboardEvent<HTMLFormElement>) =>
 							handleEnterClick(e)
 						}
-						onSubmit={e => handleFormSubmit(e)}
+						onSubmit={handleSubmit}
 					>
 						<InputField
 							label='Title'
