@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form'
 import { CountryButton } from './index'
-import countries from '../../data/countries'
-import { Country, RecipeFormData } from '../../types'
+import countries from 'src/data/countries'
+import { Country, RecipeFormData } from 'src/types'
 import { ErrorMessage, Paragraph } from '../ui'
 
 const SelectWrapper = styled.div`

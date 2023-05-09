@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 import { RegisterOptions, UseFormRegister, UseFormWatch } from 'react-hook-form'
-import { RecipeFormData } from '../../types'
+import { RecipeFormData } from 'src/types'
 import { Paragraph } from '../ui'
 
 interface PreparationTimeSliderProps {

@@ -7,6 +7,7 @@ export const theme = {
 		errorBg: '#f85e5e',
 		primaryText: '#061239',
 		lightText: '#AAAEB6',
+		lightBorder: '#e9edf1',
 		altText: '#ffffff',
 	},
 	breakpoints: {

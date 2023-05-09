@@ -1,4 +1,5 @@
 import { KeyboardEvent } from 'react'
+import countries from 'src/data/countries'
 
 export const handleEnterClick = (
 	e: KeyboardEvent<HTMLFormElement | HTMLInputElement>,
@@ -21,4 +22,8 @@ export const getBackgroundColor = (type: 'success' | 'error' | 'info') => {
 		default:
 			return 'successBg'
 	}
+}
+
+export const findCountryImage = (value: string) => {
+	return countries.find(country => country.value === value)?.image
 }

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Step } from '../../types'
+import { Step } from 'src/types'
 import styled from 'styled-components'
 import { Paragraph, RemoveButton } from '../ui'
 

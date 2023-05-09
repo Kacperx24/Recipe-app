@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { getRecipes } from '../api'
 import { LoadingSpinner } from '../components/ui'
+import { RecipeList } from '../components/recipe-list'
 
 const Container = styled.div`
 	background-color: ${({ theme }) => theme.colors.primaryBg};
@@ -22,6 +23,7 @@ const MainPage = () => {
 	return (
 		<Container>
 			<Header />
+			<RecipeList recipes={data.recipes} />
 			<Outlet />
 		</Container>
 	)

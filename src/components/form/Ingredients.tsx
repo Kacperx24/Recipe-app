@@ -1,6 +1,6 @@
 import { useState, useEffect, FC } from 'react'
 import styled from 'styled-components'
-import { RecipeFormData, Ingredient } from '../../types'
+import { RecipeFormData, Ingredient } from 'src/types'
 import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form'
 import { ErrorMessage, Paragraph } from '../ui'
 import { IngredientsList, IngredientForm } from './index'

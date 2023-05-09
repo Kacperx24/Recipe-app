@@ -2,9 +2,9 @@ import { FC, useState } from 'react'
 import styled from 'styled-components'
 import { UnitSelect } from './index'
 import { v4 as uuid } from 'uuid'
-import { Ingredient } from '../../types'
+import { Ingredient } from 'src/types'
 import { AddButton } from '../ui'
-import { handleEnterClick } from '../../utils'
+import { handleEnterClick } from 'src/utils'
 
 interface IngredientFormProps {
 	setIngredients: (

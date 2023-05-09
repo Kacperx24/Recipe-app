@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Ingredient } from '../../types'
+import { Ingredient } from 'src/types'
 import styled from 'styled-components'
 import { Paragraph, RemoveButton } from '../ui'
 
@@ -34,7 +34,6 @@ const ListItem = styled.div`
 `
 
 const StyledParagraph = styled(Paragraph)`
-	text-align: left;
 	span {
 		font-size: 20px;
 	}

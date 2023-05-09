@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Country } from '../../types'
+import { Country } from 'src/types'
 
 interface CountryButtonProps {
 	country: Country
