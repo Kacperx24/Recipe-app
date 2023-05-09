@@ -4,6 +4,7 @@ export interface RecipeFormData {
 	country: string
 	preparationTime: number
 	ingredients: Ingredient[]
+	difficulty: Difficulty
 	steps: Step[]
 }
 
@@ -14,6 +15,7 @@ export interface Recipe {
 	preparationTime: number
 	ingredients: Ingredient[]
 	steps: Step[]
+	difficulty: Difficulty
 	id: string
 }
 
@@ -35,3 +37,5 @@ export interface Step {
 	name: string
 	id: string
 }
+
+export type Difficulty = 'easy' | 'medium' | 'hard'

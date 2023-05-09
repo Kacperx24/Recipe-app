@@ -8,6 +8,7 @@ import {
 	PreparationTimeSlider,
 	SubmitButton,
 	Ingredients,
+	DifficultySelect,
 } from '../components/form'
 import { handleEnterClick } from '../utils'
 import { GoBackButton, Modal, ModalTitle } from '../components/ui'
@@ -96,6 +97,11 @@ const AddRecipeForm = () => {
 						/>
 
 						<Steps setValue={setValue} register={register} errors={errors} />
+						<DifficultySelect
+							setValue={setValue}
+							register={register}
+							errors={errors}
+						/>
 						<SubmitButton type='submit'>Add recipe</SubmitButton>
 					</Form>
 				</ContentWrapper>

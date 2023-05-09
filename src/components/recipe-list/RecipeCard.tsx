@@ -3,7 +3,11 @@ import styled from 'styled-components'
 import { CheckRecipeButton, Paragraph, Tag } from '../ui'
 import countries from 'src/data/countries'
 import { Recipe } from 'src/types'
-import { findCountryImage } from 'src/utils'
+import {
+	capitalizeFirstLetter,
+	findCountryImage,
+	getColorByDifficulty,
+} from 'src/utils'
 import { Clock } from 'lucide-react'
 
 interface RecipeCardProps {
@@ -21,39 +25,38 @@ const Card = styled.div`
 	background-color: ${({ theme }) => theme.colors.altText};
 	border: 2px solid ${({ theme }) => theme.colors.lightBorder};
 	border-radius: 12px;
-	/* overflow: hidden; */
+	/* box-shadow: 0 0px 8px rgba(187, 187, 187, 0.2); */
 `
 
 const CardContent = styled.div`
 	padding: 8px;
-	display: flex;
 	gap: 10px;
-	width: 320px;
+	width: 300px;
 `
 const CountryImageWrapper = styled.div`
-	width: 60px;
+	padding: 0 24px 0 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	img {
-		height: 40px;
-		width: 40px;
+		height: 36px;
+		width: 36px;
 	}
 `
 
 const CardDetails = styled.div`
 	flex-grow: 1;
 	padding: 6px 0;
+	display: flex;
 `
 
 const Title = styled(Paragraph)`
-	padding-right: 72px;
-	margin-bottom: 16px;
+	padding: 4px 72px 0 8px;
 `
 
 const DetailsRow = styled.div`
 	display: flex;
-	gap: 10px;
+	gap: 12px;
 	margin-top: 12px;
 `
 const PrepTime = styled(Paragraph)`
@@ -72,31 +75,36 @@ const RecipeCard: FC<RecipeCardProps> = ({ recipeData }) => {
 		ingredients,
 		steps,
 		id,
+		difficulty,
 	} = recipeData || {}
 	return (
 		<Container>
 			<Card>
 				<CheckRecipeButton>Check</CheckRecipeButton>
 				<CardContent>
-					<CountryImageWrapper>
-						<img src={findCountryImage(country)} alt={country} />
-					</CountryImageWrapper>
+					<Title fontSize={17} fontWeight={600}>
+						{title}
+					</Title>
 					<CardDetails>
-						<Title fontSize={17} fontWeight={600}>
-							{title}
-						</Title>
-						<DetailsRow>
-							<Tag color='#27d352'>Medium</Tag>
-							<PrepTime fontSize={14} fontWeight={500}>
-								<Clock size={16} /> {preparationTime}:00
-							</PrepTime>
-						</DetailsRow>
-						<DetailsRow>
-							<Tag color='#ff7b22'>{ingredients.length} ingredients</Tag>
-							<Tag color='#ff7b22' alt>
-								{steps.length} steps
-							</Tag>
-						</DetailsRow>
+						<CountryImageWrapper>
+							<img src={findCountryImage(country)} alt={country} />
+						</CountryImageWrapper>
+						<div>
+							<DetailsRow>
+								<Tag color={getColorByDifficulty(difficulty)}>
+									{capitalizeFirstLetter(difficulty)}
+								</Tag>
+								<PrepTime fontSize={14} fontWeight={500}>
+									<Clock size={16} /> {preparationTime}:00
+								</PrepTime>
+							</DetailsRow>
+							<DetailsRow>
+								<Tag color='#ff7b22'>{ingredients.length} ingredients</Tag>
+								<Tag color='#ff7b22' alt>
+									{steps.length} steps
+								</Tag>
+							</DetailsRow>
+						</div>
 					</CardDetails>
 				</CardContent>
 			</Card>

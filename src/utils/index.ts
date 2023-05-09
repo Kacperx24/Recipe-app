@@ -24,6 +24,22 @@ export const getBackgroundColor = (type: 'success' | 'error' | 'info') => {
 	}
 }
 
+export const getColorByDifficulty = (type: string) => {
+	switch (type) {
+		case 'easy':
+			return '#94C40B'
+		case 'medium':
+			return '#F0A242'
+		case 'hard':
+			return '#f85e5e'
+		default:
+			return '#ffffff'
+	}
+}
+
+export const capitalizeFirstLetter = (value: string) =>
+	value.charAt(0).toUpperCase() + value.slice(1)
+
 export const findCountryImage = (value: string) => {
 	return countries.find(country => country.value === value)?.image
 }

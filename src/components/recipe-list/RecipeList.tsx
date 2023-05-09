@@ -13,13 +13,15 @@ const Container = styled.div`
 `
 
 const Content = styled.div`
-	padding: 20px;
+	padding: 40px 20px;
 	width: 100%;
 	max-width: 1200px;
 `
 
 const List = styled.div`
-	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 20px;
 `
 
 const RecipeList: FC<RecipeListProps> = ({ recipes }) => {

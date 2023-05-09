@@ -6,7 +6,7 @@ interface HeaderTitleProps {
 }
 
 const Title = styled.h1<HeaderTitleProps>`
-	color: ${({ theme }) => theme.colors.primaryText};
+	color: ${({ theme }) => theme.colors.dark};
 	font-size: 44px;
 	font-weight: 700;
 	margin-top: 28px;

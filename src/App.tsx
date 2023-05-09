@@ -22,6 +22,7 @@ button {
 	font-weight: 600;
 	cursor: pointer;
 	transition: .1s ease-in-out;
+	color: #383838;
 	
 }
 

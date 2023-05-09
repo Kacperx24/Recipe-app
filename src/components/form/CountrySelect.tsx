@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, FC } from 'react'
 import styled from 'styled-components'
 
 import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form'
@@ -30,7 +30,11 @@ interface CountrySelectProps {
 	errors: FieldValues['errors']
 }
 
-const CountrySelect = ({ setValue, errors, register }: CountrySelectProps) => {
+const CountrySelect: FC<CountrySelectProps> = ({
+	setValue,
+	errors,
+	register,
+}) => {
 	const [pickedCountry, setPickedCountry] = useState<Country | null>(null)
 
 	const pickCountry = (country: Country) => {

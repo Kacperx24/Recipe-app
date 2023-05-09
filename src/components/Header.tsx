@@ -37,7 +37,7 @@ const BtnWrapper = styled.div`
 	order: 1;
 	justify-content: center;
 	button {
-		background-color: ${({ theme }) => theme.colors.primaryText};
+		background-color: ${({ theme }) => theme.colors.dark};
 
 		a {
 			padding: 14px 24px;

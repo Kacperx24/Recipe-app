@@ -7,17 +7,28 @@ interface RemoveButtonProps {
 
 const StyledButton = styled.button`
 	background-color: transparent;
-	opacity: 0.7;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
 	margin-right: 12px;
+	svg {
+		color: ${({ theme }) => theme.colors.lightText};
+	}
+
 	&:hover {
 		opacity: 1;
+		background-color: ${({ theme }) => theme.colors.errorBg};
+		svg {
+			color: white;
+		}
 	}
 `
 
 const RemoveButton = ({ onClick }: RemoveButtonProps) => {
 	return (
 		<StyledButton type='button'>
-			<Minus color='#9da1a8' onClick={onClick} />
+			<Minus onClick={onClick} size={22} />
 		</StyledButton>
 	)
 }
