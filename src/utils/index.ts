@@ -24,7 +24,7 @@ export const getBackgroundColor = (type: 'success' | 'error' | 'info') => {
 	}
 }
 
-export const getColorByDifficulty = (type: string) => {
+export const getColorByDifficulty = (type: string | undefined) => {
 	switch (type) {
 		case 'easy':
 			return '#94C40B'
@@ -37,8 +37,8 @@ export const getColorByDifficulty = (type: string) => {
 	}
 }
 
-export const capitalizeFirstLetter = (value: string) =>
-	value.charAt(0).toUpperCase() + value.slice(1)
+export const capitalizeFirstLetter = (value: string | undefined) =>
+	value ? value.charAt(0).toUpperCase() + value.slice(1) : ''
 
 export const findCountryImage = (value: string) => {
 	return countries.find(country => country.value === value)?.image

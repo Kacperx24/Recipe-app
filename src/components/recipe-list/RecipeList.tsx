@@ -13,7 +13,7 @@ const Container = styled.div`
 `
 
 const Content = styled.div`
-	padding: 40px 20px;
+	padding: 40px 0px;
 	width: 100%;
 	max-width: 1200px;
 `

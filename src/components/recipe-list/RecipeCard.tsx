@@ -1,14 +1,14 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 import { CheckRecipeButton, Paragraph, Tag } from '../ui'
-import countries from 'src/data/countries'
 import { Recipe } from 'src/types'
 import {
 	capitalizeFirstLetter,
 	findCountryImage,
 	getColorByDifficulty,
 } from 'src/utils'
-import { Clock } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import PreparationTime from '../ui/PreparationTime'
 
 interface RecipeCardProps {
 	recipeData: Recipe
@@ -59,17 +59,10 @@ const DetailsRow = styled.div`
 	gap: 12px;
 	margin-top: 12px;
 `
-const PrepTime = styled(Paragraph)`
-	color: ${({ theme }) => theme.colors.lightText};
-	display: flex;
-	align-items: center;
-	gap: 6px;
-`
 
 const RecipeCard: FC<RecipeCardProps> = ({ recipeData }) => {
 	const {
 		title,
-		description,
 		country,
 		preparationTime,
 		ingredients,
@@ -77,10 +70,13 @@ const RecipeCard: FC<RecipeCardProps> = ({ recipeData }) => {
 		id,
 		difficulty,
 	} = recipeData || {}
+
 	return (
 		<Container>
 			<Card>
-				<CheckRecipeButton>Check</CheckRecipeButton>
+				<Link to={`/recipe/${id}`}>
+					<CheckRecipeButton>Check</CheckRecipeButton>
+				</Link>
 				<CardContent>
 					<Title fontSize={17} fontWeight={600}>
 						{title}
@@ -94,13 +90,11 @@ const RecipeCard: FC<RecipeCardProps> = ({ recipeData }) => {
 								<Tag color={getColorByDifficulty(difficulty)}>
 									{capitalizeFirstLetter(difficulty)}
 								</Tag>
-								<PrepTime fontSize={14} fontWeight={500}>
-									<Clock size={16} /> {preparationTime}:00
-								</PrepTime>
+								<PreparationTime time={preparationTime} />
 							</DetailsRow>
 							<DetailsRow>
 								<Tag color='#ff7b22'>{ingredients.length} ingredients</Tag>
-								<Tag color='#ff7b22' alt>
+								<Tag color='#ff7b22' variant='secondary'>
 									{steps.length} steps
 								</Tag>
 							</DetailsRow>

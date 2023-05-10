@@ -3,7 +3,7 @@ import { Ingredient } from 'src/types'
 import styled from 'styled-components'
 import { Paragraph, RemoveButton } from '../ui'
 
-interface IngredientsListProps {
+interface IngredientListProps {
 	ingredients: Ingredient[]
 	onRemoveIngredient: (id: string) => void
 }
@@ -39,7 +39,7 @@ const StyledParagraph = styled(Paragraph)`
 	}
 `
 
-const IngredientsList: FC<IngredientsListProps> = ({
+const IngredientList: FC<IngredientListProps> = ({
 	ingredients,
 	onRemoveIngredient,
 }) => {
@@ -60,4 +60,4 @@ const IngredientsList: FC<IngredientsListProps> = ({
 	)
 }
 
-export default IngredientsList
+export default IngredientList

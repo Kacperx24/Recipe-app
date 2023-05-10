@@ -6,6 +6,7 @@ import AddRecipeForm from './pages/AddRecipeForm'
 import MainPage from './pages/MainPage'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import Contexts from './Contexts'
+import RecipeDetails from './pages/RecipeDetails'
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
 			{
 				path: '/form',
 				element: <AddRecipeForm />,
+			},
+			{
+				path: '/recipe/:id',
+				element: <RecipeDetails />,
 			},
 		],
 	},

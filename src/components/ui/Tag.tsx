@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 interface TagProps {
 	color: string
-	alt?: boolean
+	variant?: 'primary' | 'secondary'
 }
 
 const Tag = styled.label<TagProps>`
@@ -10,11 +10,13 @@ const Tag = styled.label<TagProps>`
 	padding: 5px 14px;
 	font-weight: 400;
 	font-size: 13px;
-	background-color: ${({ color, alt }) => (alt ? `${color}22` : color)};
-	color: ${({ color, alt, theme }) => (alt ? color : theme.colors.altText)};
+	background-color: ${({ color, variant }) =>
+		variant === 'secondary' ? `${color}22` : color};
+	color: ${({ color, variant, theme }) =>
+		variant === 'secondary' ? color : theme.colors.altText};
 `
 Tag.defaultProps = {
-	alt: false,
+	variant: 'primary',
 }
 
 export default Tag

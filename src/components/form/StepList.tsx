@@ -3,7 +3,7 @@ import { Step } from 'src/types'
 import styled from 'styled-components'
 import { Paragraph, RemoveButton } from '../ui'
 
-interface StepsListProps {
+interface StepListProps {
 	steps: Step[]
 	onRemoveStep: (id: string) => void
 }
@@ -39,22 +39,7 @@ const StepDescription = styled(Paragraph)`
 	text-align: left;
 `
 
-const StepsList: FC<StepsListProps> = ({ steps, onRemoveStep }) => {
-	// const [editedStepValue, setEditedStepValue] = useState('')
-	// const [editedStepId, setEditedStepId] = useState<string | null>(null)
-	// const handleStartEditingStep = (id: string, name: string) => {
-	// 	setEditedStepId(id)
-	// 	setEditedStepValue(name)
-	// }
-
-	// const handleStopEditingStep = (id: string) => {
-	// 	console.log('out')
-	// 	if (id === editedStepId) {
-	// 		onEditStep(id, editedStepValue)
-	// 		setEditedStepId(null)
-	// 	}
-	// }
-
+const StepList: FC<StepListProps> = ({ steps, onRemoveStep }) => {
 	return (
 		<List>
 			{steps.map(({ name, point, id }) => (
@@ -68,4 +53,4 @@ const StepsList: FC<StepsListProps> = ({ steps, onRemoveStep }) => {
 	)
 }
 
-export default StepsList
+export default StepList
