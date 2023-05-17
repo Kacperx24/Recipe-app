@@ -13,8 +13,8 @@ const StyledButton = styled.button`
 	align-items: center;
 	justify-content: center;
 	background-color: transparent;
-	width: 40px;
-	height: 40px;
+	width: 44px;
+	height: 44px;
 	&:hover {
 		background-color: #aaaaaa16;
 	}
@@ -25,7 +25,7 @@ const GoBackButton: FC<GoBackButtonProps> = ({ onClick }) => {
 
 	return (
 		<StyledButton onClick={() => navigate(-1)}>
-			<ArrowLeft size={24} color='#aaaaaa' />
+			<ArrowLeft size={26} color='#aaaaaa' />
 		</StyledButton>
 	)
 }

@@ -14,6 +14,10 @@ const Tag = styled.label<TagProps>`
 		variant === 'secondary' ? `${color}22` : color};
 	color: ${({ color, variant, theme }) =>
 		variant === 'secondary' ? color : theme.colors.altText};
+	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+		font-size: 14px;
+		padding: 5px 16px;
+	}
 `
 Tag.defaultProps = {
 	variant: 'primary',

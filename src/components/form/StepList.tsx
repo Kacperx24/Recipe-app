@@ -9,18 +9,19 @@ interface StepListProps {
 }
 
 const List = styled.div`
-	margin: 25px auto 0;
+	margin: 45px auto 0;
 	width: 100%;
 	max-width: 460px;
 `
 
 const StepItem = styled.div`
-	margin-bottom: 10px;
+	margin-bottom: 16px;
 	display: flex;
 	align-items: center;
 	span {
 		font-size: 19px;
-		margin-right: 10px;
+		font-weight: 500;
+		margin-right: 16px;
 	}
 `
 // const EditStepInput = styled.textarea`

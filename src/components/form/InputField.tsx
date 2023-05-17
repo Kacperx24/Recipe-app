@@ -19,15 +19,24 @@ const LabelsContainer = styled.div`
 		font-weight: 600;
 		font-size: 15px;
 		color: ${({ theme }) => theme.colors.primaryText};
+		@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+			font-size: 16px;
+		}
 	}
 `
 
 const Input = styled.input`
 	width: 100%;
+	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+		font-size: 15px;
+	}
 `
 const TextArea = styled.textarea`
 	resize: none;
 	width: 100%;
+	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+		font-size: 15px;
+	}
 `
 
 type InputFieldProps = {

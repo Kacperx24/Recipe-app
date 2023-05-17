@@ -23,8 +23,17 @@ const Container = styled.div`
 const Card = styled.div`
 	position: relative;
 	background-color: ${({ theme }) => theme.colors.altText};
-	border: 2px solid ${({ theme }) => theme.colors.lightBorder};
+	/* border: 2px solid ${({ theme }) => theme.colors.lightBorder}; */
 	border-radius: 12px;
+	transition: 0.2s;
+	/* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); */
+	box-shadow: 0px 2px 5px #8a8a8a21;
+
+	&:hover {
+		transform: scale(1.04); // Powiększa kartę
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); // Zwiększa cień
+		box-shadow: 0px 5px 15px #8a8a8a39;
+	}
 	/* box-shadow: 0 0px 8px rgba(187, 187, 187, 0.2); */
 `
 
@@ -32,6 +41,11 @@ const CardContent = styled.div`
 	padding: 8px;
 	gap: 10px;
 	width: 300px;
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+		width: 340px;
+		padding: 12px;
+	}
 `
 const CountryImageWrapper = styled.div`
 	padding: 0 24px 0 12px;
@@ -41,6 +55,12 @@ const CountryImageWrapper = styled.div`
 	img {
 		height: 36px;
 		width: 36px;
+	}
+	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+		img {
+			height: 40px;
+			width: 40px;
+		}
 	}
 `
 
@@ -52,12 +72,21 @@ const CardDetails = styled.div`
 
 const Title = styled(Paragraph)`
 	padding: 4px 72px 0 8px;
+	font-size: 17px;
+	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+		font-size: 19px;
+		padding: 4px 80px 4px 8px;
+	}
 `
 
 const DetailsRow = styled.div`
 	display: flex;
 	gap: 12px;
 	margin-top: 12px;
+	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+		gap: 14px;
+		margin-top: 14px;
+	}
 `
 
 const RecipeCard: FC<RecipeCardProps> = ({ recipeData }) => {
@@ -73,35 +102,33 @@ const RecipeCard: FC<RecipeCardProps> = ({ recipeData }) => {
 
 	return (
 		<Container>
-			<Card>
-				<Link to={`/recipe/${id}`}>
+			<Link to={`/recipe/${id}`}>
+				<Card>
 					<CheckRecipeButton>Check</CheckRecipeButton>
-				</Link>
-				<CardContent>
-					<Title fontSize={17} fontWeight={600}>
-						{title}
-					</Title>
-					<CardDetails>
-						<CountryImageWrapper>
-							<img src={findCountryImage(country)} alt={country} />
-						</CountryImageWrapper>
-						<div>
-							<DetailsRow>
-								<Tag color={getColorByDifficulty(difficulty)}>
-									{capitalizeFirstLetter(difficulty)}
-								</Tag>
-								<PreparationTime time={preparationTime} />
-							</DetailsRow>
-							<DetailsRow>
-								<Tag color='#ff7b22'>{ingredients.length} ingredients</Tag>
-								<Tag color='#ff7b22' variant='secondary'>
-									{steps.length} steps
-								</Tag>
-							</DetailsRow>
-						</div>
-					</CardDetails>
-				</CardContent>
-			</Card>
+					<CardContent>
+						<Title fontWeight={600}>{title}</Title>
+						<CardDetails>
+							<CountryImageWrapper>
+								<img src={findCountryImage(country)} alt={country} />
+							</CountryImageWrapper>
+							<div>
+								<DetailsRow>
+									<Tag color={getColorByDifficulty(difficulty)}>
+										{capitalizeFirstLetter(difficulty)}
+									</Tag>
+									<PreparationTime time={preparationTime} />
+								</DetailsRow>
+								<DetailsRow>
+									<Tag color='#ff7b22'>{ingredients.length} ingredients</Tag>
+									<Tag color='#ff7b22' variant='secondary'>
+										{steps.length} steps
+									</Tag>
+								</DetailsRow>
+							</div>
+						</CardDetails>
+					</CardContent>
+				</Card>
+			</Link>
 		</Container>
 	)
 }

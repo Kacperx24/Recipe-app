@@ -27,8 +27,8 @@ const IngredientList: FC<IngredientListProps> = ({ ingredients }) => {
 				Ingredients
 			</Paragraph>
 			<List>
-				{ingredients?.map(({ unit, quantity, name }) => (
-					<StyledParagraph center fontWeight={500}>
+				{ingredients?.map(({ unit, quantity, name, id }) => (
+					<StyledParagraph key={id} center fontWeight={500}>
 						{quantity} {unit} {name}
 					</StyledParagraph>
 				))}

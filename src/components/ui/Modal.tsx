@@ -26,6 +26,7 @@ const Container = styled.div<{ maxWidth: number }>`
 	background-color: ${({ theme }) => theme.colors.primaryBg};
 	border-radius: 12px;
 	overflow: hidden;
+	box-shadow: 0px 0px 16px 4px #2e2e2e42;
 `
 
 const ContentWrapper = styled.div`

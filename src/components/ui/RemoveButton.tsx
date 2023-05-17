@@ -10,6 +10,8 @@ const StyledButton = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 24px;
+	height: 24px;
 	border-radius: 50%;
 	margin-right: 12px;
 	svg {

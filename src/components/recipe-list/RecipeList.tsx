@@ -8,12 +8,7 @@ interface RecipeListProps {
 }
 
 const Container = styled.div`
-	display: flex;
-	justify-content: center;
-`
-
-const Content = styled.div`
-	padding: 40px 0px;
+	padding: 60px 0px;
 	width: 100%;
 	max-width: 1200px;
 `
@@ -21,19 +16,21 @@ const Content = styled.div`
 const List = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	gap: 20px;
+	gap: 35px 20px;
+	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+		grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+		gap: 50px 20px;
+	}
 `
 
 const RecipeList: FC<RecipeListProps> = ({ recipes }) => {
 	return (
 		<Container>
-			<Content>
-				<List>
-					{recipes.map(item => (
-						<RecipeCard recipeData={item} key={item.id} />
-					))}
-				</List>
-			</Content>
+			<List>
+				{recipes.map(item => (
+					<RecipeCard recipeData={item} key={item.id} />
+				))}
+			</List>
 		</Container>
 	)
 }

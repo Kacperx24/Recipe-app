@@ -9,6 +9,13 @@ const CheckRecipeButton = styled.button`
 	padding: 8px 0;
 	width: 62px;
 	color: ${({ theme }) => theme.colors.altText};
+	transition: 0.2s;
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+		padding: 12px 0;
+		width: 70px;
+		font-size: 14px;
+	}
 `
 
 export default CheckRecipeButton

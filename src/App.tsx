@@ -10,10 +10,15 @@ import RecipeDetails from './pages/RecipeDetails'
 
 const GlobalStyle = createGlobalStyle`
 * {
-	font-family: Cabin;
+	font-family: Quicksand;
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+}
+
+body{
+	background-color: #F6F8FA;
+
 }
 
 button {

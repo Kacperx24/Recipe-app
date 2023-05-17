@@ -12,12 +12,16 @@ const PrepTime = styled(Paragraph)`
 	display: flex;
 	align-items: center;
 	gap: 6px;
+	font-size: 14px;
+	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
+		font-size: 17px;
+	}
 `
 
 const PreparationTime: FC<PreparationTimeProps> = ({ time }) => {
 	return (
-		<PrepTime fontSize={14} fontWeight={500}>
-			<Clock size={16} /> {time}:00
+		<PrepTime fontWeight={500}>
+			<Clock size={17} /> {time}:00
 		</PrepTime>
 	)
 }
