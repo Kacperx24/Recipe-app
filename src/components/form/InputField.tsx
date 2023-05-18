@@ -1,6 +1,7 @@
 import React from 'react'
 import { FieldValues } from 'react-hook-form'
 import styled from 'styled-components'
+
 import { ErrorMessage } from '../ui'
 
 const InputWrapper = styled.div`
@@ -15,10 +16,12 @@ const InputWrapper = styled.div`
 const LabelsContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
+
 	label {
 		font-weight: 600;
 		font-size: 15px;
 		color: ${({ theme }) => theme.colors.primaryText};
+
 		@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
 			font-size: 16px;
 		}
@@ -27,6 +30,7 @@ const LabelsContainer = styled.div`
 
 const Input = styled.input`
 	width: 100%;
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
 		font-size: 15px;
 	}
@@ -34,6 +38,7 @@ const Input = styled.input`
 const TextArea = styled.textarea`
 	resize: none;
 	width: 100%;
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
 		font-size: 15px;
 	}

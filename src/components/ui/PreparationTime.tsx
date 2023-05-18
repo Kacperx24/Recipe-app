@@ -1,7 +1,8 @@
 import { FC } from 'react'
 import styled from 'styled-components'
-import Paragraph from './Paragraph'
 import { Clock } from 'lucide-react'
+
+import Paragraph from './Paragraph'
 
 interface PreparationTimeProps {
 	time: number

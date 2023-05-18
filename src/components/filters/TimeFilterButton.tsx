@@ -1,6 +1,7 @@
-import React, { FC, useRef, useState } from 'react'
-import { FilterCard, Paragraph, RangeInput } from '../ui'
+import { FC, useRef, useState } from 'react'
 import styled from 'styled-components'
+
+import { FilterCard, Paragraph, RangeInput } from '../ui'
 import useClickOutside from 'src/hooks/useClickOutside'
 import FilterButton from './FilterButton'
 

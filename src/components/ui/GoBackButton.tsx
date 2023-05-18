@@ -1,11 +1,6 @@
-import React, { FC } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
-
-interface GoBackButtonProps {
-	onClick?: () => void
-}
 
 const StyledButton = styled.button`
 	border-radius: 50%;
@@ -15,12 +10,13 @@ const StyledButton = styled.button`
 	background-color: transparent;
 	width: 44px;
 	height: 44px;
+
 	&:hover {
 		background-color: #aaaaaa16;
 	}
 `
 
-const GoBackButton: FC<GoBackButtonProps> = ({ onClick }) => {
+const GoBackButton = () => {
 	const navigate = useNavigate()
 
 	return (

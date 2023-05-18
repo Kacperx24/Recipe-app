@@ -1,6 +1,7 @@
 import { FC, useState, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
 import styled, { css } from 'styled-components'
+
 import { Paragraph } from '../ui'
 import { UNITS } from 'src/data/constants'
 
@@ -40,6 +41,7 @@ const ButtonContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
 	svg {
 		cursor: pointer;
 	}

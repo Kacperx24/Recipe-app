@@ -1,5 +1,5 @@
 import { ChevronDown } from 'lucide-react'
-import React, { FC, ReactNode, Ref, forwardRef } from 'react'
+import { FC, ReactNode, Ref, forwardRef } from 'react'
 import styled from 'styled-components'
 
 interface FilterButtonProps {
@@ -23,6 +23,7 @@ const Button = styled.button`
 	justify-content: space-between;
 	color: ${({ theme }) => theme.colors.secondaryText};
 	color: #868686;
+
 	&:active {
 		transform: none;
 	}

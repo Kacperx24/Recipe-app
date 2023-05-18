@@ -1,6 +1,7 @@
-import React, { FC } from 'react'
-import { Step } from 'src/types'
+import { FC } from 'react'
 import styled from 'styled-components'
+
+import { Step } from 'src/types'
 import { Paragraph } from '../ui'
 
 interface StepListProps {

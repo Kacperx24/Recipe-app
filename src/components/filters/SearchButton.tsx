@@ -1,5 +1,5 @@
 import { Search } from 'lucide-react'
-import React, { FC } from 'react'
+import { FC } from 'react'
 import styled from 'styled-components'
 
 interface SearchButtonProps {
@@ -17,6 +17,7 @@ const Button = styled.div`
 	display: flex;
 	align-items: center;
 	color: #868686;
+
 	input {
 		flex-grow: 1;
 		padding: 2px;
@@ -25,6 +26,7 @@ const Button = styled.div`
 		font-size: 14px;
 		font-weight: 600;
 		color: ${({ theme }) => theme.colors.secondaryText};
+
 		&::placeholder {
 			font-size: 13px;
 			color: #868686;

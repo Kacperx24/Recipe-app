@@ -1,5 +1,7 @@
 import { FC } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
 import { CheckRecipeButton, Paragraph, Tag } from '../ui'
 import { Recipe } from 'src/types'
 import {
@@ -7,7 +9,6 @@ import {
 	findCountryImage,
 	getColorByDifficulty,
 } from 'src/utils'
-import { Link } from 'react-router-dom'
 import PreparationTime from '../ui/PreparationTime'
 
 interface RecipeCardProps {
@@ -23,18 +24,15 @@ const Container = styled.div`
 const Card = styled.div`
 	position: relative;
 	background-color: ${({ theme }) => theme.colors.altText};
-	/* border: 2px solid ${({ theme }) => theme.colors.lightBorder}; */
 	border-radius: 12px;
 	transition: 0.2s;
-	/* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); */
 	box-shadow: 0px 2px 5px #8a8a8a21;
 
 	&:hover {
-		transform: scale(1.04); // Powiększa kartę
-		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); // Zwiększa cień
+		transform: scale(1.04);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 		box-shadow: 0px 5px 15px #8a8a8a39;
 	}
-	/* box-shadow: 0 0px 8px rgba(187, 187, 187, 0.2); */
 `
 
 const CardContent = styled.div`
@@ -47,15 +45,18 @@ const CardContent = styled.div`
 		padding: 12px;
 	}
 `
+
 const CountryImageWrapper = styled.div`
 	padding: 0 24px 0 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
 	img {
 		height: 36px;
 		width: 36px;
 	}
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
 		img {
 			height: 40px;
@@ -73,6 +74,7 @@ const CardDetails = styled.div`
 const Title = styled(Paragraph)`
 	padding: 4px 72px 0 8px;
 	font-size: 17px;
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
 		font-size: 19px;
 		padding: 4px 80px 4px 8px;
@@ -83,6 +85,7 @@ const DetailsRow = styled.div`
 	display: flex;
 	gap: 12px;
 	margin-top: 12px;
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
 		gap: 14px;
 		margin-top: 14px;

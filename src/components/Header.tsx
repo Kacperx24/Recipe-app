@@ -1,8 +1,8 @@
-import React from 'react'
 import styled from 'styled-components'
-import { Paragraph, HeaderTitle } from './ui'
 import { Plus } from 'lucide-react'
 import { Link } from 'react-router-dom'
+
+import { Paragraph, HeaderTitle } from './ui'
 
 const Container = styled.div`
 	background-color: ${({ theme }) => theme.colors.secondaryBg};
@@ -10,6 +10,7 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
 		padding: 30px 30px 40px;
 
@@ -23,19 +24,23 @@ const Description = styled(Paragraph)`
 	margin: 25px;
 	text-align: center;
 	max-width: 600px;
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
 		font-size: 18px;
 		margin: 40px 0 0;
 	}
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
 		font-size: 20px;
 	}
 `
+
 const BtnWrapper = styled.div`
 	width: 100%;
 	display: flex;
 	order: 1;
 	justify-content: center;
+
 	button {
 		background-color: ${({ theme }) => theme.colors.dark};
 
@@ -55,6 +60,7 @@ const BtnWrapper = styled.div`
 		order: 0;
 	}
 `
+
 const Header = () => {
 	return (
 		<Container>

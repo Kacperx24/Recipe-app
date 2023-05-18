@@ -1,11 +1,10 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import styled from 'styled-components'
+
 import CountryFilterButton from './CountryFilterButton'
 import TimeFilterButton from './TimeFilterButton'
 import SearchButton from './SearchButton'
 import { FilterState, UpdateFilter } from 'src/hooks/useFilters'
-import FilterTag from './FilterTag'
-import { findCountryImage } from 'src/utils'
 import AppliedFilters from './AppliedFilters'
 
 interface FiltersProps {

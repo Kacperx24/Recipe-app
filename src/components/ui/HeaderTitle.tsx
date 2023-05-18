@@ -1,23 +1,21 @@
 import styled from 'styled-components'
 
-interface HeaderTitleProps {
-	color?: 'default' | 'light'
-	fontWeight?: 400 | 500 | 600 | 700 | 800
-}
-
-const Title = styled.h1<HeaderTitleProps>`
+const Title = styled.h1`
 	color: ${({ theme }) => theme.colors.dark};
 	font-size: 44px;
 	font-weight: 700;
 	margin-top: 28px;
 	font-family: Cabin;
+
 	span {
 		color: ${({ theme }) => theme.colors.altText};
 		font-family: Cabin;
 	}
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
 		font-size: 56px;
 	}
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
 		font-size: 80px;
 	}

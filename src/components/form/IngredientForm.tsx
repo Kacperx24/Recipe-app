@@ -1,7 +1,8 @@
 import { FC, useState } from 'react'
 import styled from 'styled-components'
-import { UnitSelect } from './index'
 import { v4 as uuid } from 'uuid'
+
+import { UnitSelect } from './index'
 import { Ingredient } from 'src/types'
 import { AddButton } from '../ui'
 import { handleEnterClick } from 'src/utils'
@@ -38,6 +39,7 @@ const QuantityInput = styled.input<{ error: boolean }>`
 	font-size: 15px;
 	text-align: center;
 	box-shadow: ${({ error }) => (error ? '0 0 0 2px #f77575' : 'none')};
+
 	&::-webkit-inner-spin-button,
 	&::-webkit-outer-spin-button {
 		-webkit-appearance: none;
@@ -82,6 +84,7 @@ const IngredientForm: FC<IngredientFormProps> = ({ setIngredients }) => {
 	const handleSetQuantity = (quantity: string) => {
 		setCurrentIngredient(prev => ({ ...prev, quantity }))
 	}
+
 	const handleSetName = (name: string) => {
 		setCurrentIngredient(prev => ({ ...prev, name }))
 	}

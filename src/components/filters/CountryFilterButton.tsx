@@ -1,6 +1,7 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
-import { FilterCard, Paragraph, SelectButton } from '../ui'
+import { FC, useRef, useState } from 'react'
 import styled from 'styled-components'
+
+import { FilterCard, Paragraph, SelectButton } from '../ui'
 import countriesData from 'src/data/countries'
 import useClickOutside from 'src/hooks/useClickOutside'
 import FilterButton from './FilterButton'
@@ -36,7 +37,6 @@ const CountryFilterButton: FC<CountryFilterButtonProps> = ({
 	const handleToggleFilter = (value: string) => {
 		if (countries.includes(value)) {
 			onUpdate(countries.filter(countryName => countryName !== value))
-
 			return
 		}
 		onUpdate([...countries, value])

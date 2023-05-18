@@ -1,5 +1,6 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import styled from 'styled-components'
+
 import FilterTag from './FilterTag'
 import { findCountryImage } from 'src/utils'
 

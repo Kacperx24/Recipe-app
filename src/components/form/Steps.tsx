@@ -1,10 +1,10 @@
 import { FC, KeyboardEvent, useEffect, useState } from 'react'
 import styled from 'styled-components'
-
 import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form'
+import { v4 as uuid } from 'uuid'
+
 import { RecipeFormData, Step } from 'src/types'
 import { StepsList } from './index'
-import { v4 as uuid } from 'uuid'
 import { handleEnterClick } from 'src/utils'
 import { ErrorMessage, Paragraph, AddButton } from '../ui'
 
@@ -65,6 +65,7 @@ const Steps: FC<StepsProps> = ({ setValue, register, errors }) => {
 	useEffect(() => {
 		setValue('steps', steps)
 	}, [steps, setValue])
+
 	return (
 		<Container>
 			<input

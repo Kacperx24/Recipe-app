@@ -1,5 +1,5 @@
 import { Check } from 'lucide-react'
-import React, { FC } from 'react'
+import { FC } from 'react'
 import styled from 'styled-components'
 
 interface SelectButtonProps {

@@ -1,10 +1,10 @@
-import { FC } from 'react'
 import styled, { keyframes } from 'styled-components'
 
 const rotateAnimation = keyframes`
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -33,7 +33,7 @@ const LoadingWrapper = styled.div`
 	background-color: ${({ theme }) => theme.colors.secondaryBg};
 `
 
-const LoadingSpinner: FC = () => {
+const LoadingSpinner = () => {
 	return (
 		<LoadingWrapper>
 			<Svg viewBox='0 0 100 100'>

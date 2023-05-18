@@ -1,6 +1,7 @@
-import React, { FC } from 'react'
-import { Ingredient } from 'src/types'
+import { FC } from 'react'
 import styled from 'styled-components'
+
+import { Ingredient } from 'src/types'
 import { Paragraph, RemoveButton } from '../ui'
 
 interface IngredientListProps {
@@ -11,6 +12,7 @@ interface IngredientListProps {
 const Container = styled.div`
 	width: 100%;
 	padding: 40px 10px 0;
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
 		padding: 40px 50px 0;
 	}

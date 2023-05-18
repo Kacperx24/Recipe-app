@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import styled from 'styled-components'
 import { Recipe } from 'src/types'
 import RecipeCard from './RecipeCard'
@@ -17,6 +17,7 @@ const List = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	gap: 35px 20px;
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
 		grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
 		gap: 50px 20px;

@@ -1,7 +1,7 @@
 import { useState, FC } from 'react'
 import styled from 'styled-components'
-
 import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form'
+
 import { CountryButton } from './index'
 import countries from 'src/data/countries'
 import { Country, RecipeFormData } from 'src/types'
@@ -19,6 +19,7 @@ const CountriesWrapper = styled.div`
 	display: grid;
 	gap: 12px;
 	grid-template-columns: repeat(4, 1fr);
+
 	@media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
 		grid-template-columns: repeat(6, 1fr);
 	}

@@ -14,6 +14,7 @@ const StyledButton = styled.button`
 	height: 24px;
 	border-radius: 50%;
 	margin-right: 12px;
+
 	svg {
 		color: ${({ theme }) => theme.colors.lightText};
 	}
@@ -21,6 +22,7 @@ const StyledButton = styled.button`
 	&:hover {
 		opacity: 1;
 		background-color: ${({ theme }) => theme.colors.errorBg};
+
 		svg {
 			color: white;
 		}

@@ -1,4 +1,5 @@
 import { KeyboardEvent } from 'react'
+
 import countries from 'src/data/countries'
 
 export const handleEnterClick = (

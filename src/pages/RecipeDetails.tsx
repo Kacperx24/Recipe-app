@@ -1,15 +1,14 @@
-import React from 'react'
 import { useQueryClient } from 'react-query'
 import { useParams } from 'react-router-dom'
+import styled from 'styled-components'
+
 import {
 	IngredientList,
 	RecipeTags,
 	StepList,
 } from 'src/components/recipe-details'
-
 import { Modal, ModalTitle, Paragraph } from 'src/components/ui'
 import { Recipe } from 'src/types'
-import styled from 'styled-components'
 
 const Description = styled(Paragraph)`
 	margin-top: 25px;

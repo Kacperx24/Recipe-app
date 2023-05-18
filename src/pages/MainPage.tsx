@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import Header from '../components/Header'
 import { Outlet } from 'react-router-dom'
 import { useQuery } from 'react-query'
+
+import Header from '../components/Header'
 import { getRecipes } from '../api'
 import { LoadingSpinner } from '../components/ui'
 import { RecipeList } from '../components/recipe-list'
@@ -20,7 +21,7 @@ const ListContent = styled.div`
 `
 
 const MainPage = () => {
-	const { isLoading, isError, data } = useQuery({
+	const { isLoading, data } = useQuery({
 		queryKey: ['recipes'],
 		queryFn: getRecipes,
 	})

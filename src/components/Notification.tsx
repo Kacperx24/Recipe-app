@@ -9,16 +9,19 @@ interface NotificationProps {
 }
 
 const fadeOut = keyframes`
-  0% {
+	0% {
 	top: 100%;
 }
-10% {
+
+	10% {
 	top: calc(100% - 100px);
 }
-90% {
+
+	90% {
 	top: calc(100% - 100px);
 }
-  100% {
+
+	100% {
 	top: 100%;
 
   }

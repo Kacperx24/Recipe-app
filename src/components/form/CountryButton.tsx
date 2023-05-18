@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { Country } from 'src/types'
 
 interface CountryButtonProps {
@@ -7,14 +8,11 @@ interface CountryButtonProps {
 	active: boolean
 }
 
-interface CountryContainerProps {
-	active: boolean
-}
-
-const CountryContainer = styled.div<CountryContainerProps>`
+const CountryContainer = styled.div<{ active: boolean }>`
 	opacity: ${({ active }) => (active ? 1 : 0.4)};
 	padding: 4px;
 	transition: 0.2s;
+
 	img {
 		width: 30px;
 		height: 30px;

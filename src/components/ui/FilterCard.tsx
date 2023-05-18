@@ -1,4 +1,4 @@
-import React, { ReactNode, FC, forwardRef, Ref } from 'react'
+import { ReactNode, FC, forwardRef, Ref } from 'react'
 import styled from 'styled-components'
 
 interface FilterCardProps {

@@ -1,5 +1,5 @@
 import { X } from 'lucide-react'
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import styled from 'styled-components'
 
 interface FilterTagProps {
@@ -22,6 +22,7 @@ const Button = styled.button`
 	justify-content: space-between;
 	color: ${({ theme }) => theme.colors.secondaryText};
 	color: #868686;
+
 	&:active {
 		transform: none;
 	}

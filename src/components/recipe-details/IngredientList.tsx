@@ -1,6 +1,7 @@
-import React, { FC } from 'react'
-import { Ingredient } from 'src/types'
+import { FC } from 'react'
 import styled from 'styled-components'
+
+import { Ingredient } from 'src/types'
 import { Paragraph } from '../ui'
 
 interface IngredientListProps {

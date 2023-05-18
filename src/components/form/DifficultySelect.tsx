@@ -1,7 +1,8 @@
 import { FC, useState } from 'react'
 import styled from 'styled-components'
-import { ErrorMessage, Paragraph } from '../ui'
 import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form'
+
+import { ErrorMessage, Paragraph } from '../ui'
 import { Difficulty, RecipeFormData } from 'src/types'
 import { DIFFICULTY_OPTIONS } from 'src/data/constants'
 import { capitalizeFirstLetter, getColorByDifficulty } from 'src/utils'

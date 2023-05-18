@@ -22,6 +22,7 @@ const RangeInput = styled.input<{ width?: number }>`
 		cursor: pointer;
 		transition: background-color 0.3s ease;
 	}
+
 	&::-moz-range-thumb {
 		width: 18px;
 		height: 18px;

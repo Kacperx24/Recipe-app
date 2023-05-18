@@ -1,10 +1,11 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
+import styled from 'styled-components'
+
 import {
 	capitalizeFirstLetter,
 	findCountryImage,
 	getColorByDifficulty,
 } from 'src/utils'
-import styled from 'styled-components'
 import { PreparationTime, Tag } from '../ui'
 import { Difficulty, Ingredient, Step } from 'src/types'
 
@@ -22,16 +23,19 @@ const Tags = styled.div`
 	flex-direction: column;
 	gap: 36px;
 `
+
 const TagRow = styled.div`
 	display: flex;
 	justify-content: center;
 	gap: 12px;
 `
+
 const CountryImageWrapper = styled.div`
 	padding: 0 24px 0 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
 	img {
 		height: 36px;
 		width: 36px;
