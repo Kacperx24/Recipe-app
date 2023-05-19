@@ -1,5 +1,5 @@
 import { ThemeProvider } from 'styled-components'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 import { QueryClientProvider, QueryClient } from 'react-query'
 
 import { GlobalStyle, theme } from './theme'
@@ -8,7 +8,7 @@ import MainPage from './pages/MainPage'
 import Contexts from './Contexts'
 import RecipeDetails from './pages/RecipeDetails'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
 	{
 		path: '/',
 		element: <MainPage />,
