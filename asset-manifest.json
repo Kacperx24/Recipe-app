@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/Recipe-app/static/js/main.c885a830.js",
+    "static/media/south-korea.png": "/Recipe-app/static/media/south-korea.3cd8e320198c26fd0ecb.png",
+    "static/media/china.png": "/Recipe-app/static/media/china.ab3167c3992add4d8502.png",
+    "index.html": "/Recipe-app/index.html",
+    "main.c885a830.js.map": "/Recipe-app/static/js/main.c885a830.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.c885a830.js"
+  ]
+}
