@@ -69,9 +69,13 @@ const InputField: React.FC<InputFieldProps> = ({
 				<TextArea
 					{...register(name, { required: 'Description is required' })}
 					rows='5'
+					data-testid='textarea'
 				/>
 			) : (
-				<Input {...register(name, { required: 'Name is required' })} />
+				<Input
+					{...register(name, { required: 'Name is required' })}
+					data-testid='input'
+				/>
 			)}
 		</InputWrapper>
 	)

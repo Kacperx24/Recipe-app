@@ -35,6 +35,7 @@ const ContentWrapper = styled.div`
 	padding: 30px 20px;
 	width: 100%;
 	overflow-y: auto;
+	overflow: hidden;
 	max-height: 90vh;
 	display: flex;
 	flex-direction: column;

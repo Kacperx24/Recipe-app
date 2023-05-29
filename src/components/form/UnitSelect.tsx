@@ -78,7 +78,7 @@ const UnitSelect: FC<UnitSelectProps> = ({ setUnit }) => {
 				))}
 			</UnitsContainer>
 			<ButtonContainer>
-				<ChevronDown onClick={changeUnitIndex} />
+				<ChevronDown data-testid='unit-select-icon' onClick={changeUnitIndex} />
 			</ButtonContainer>
 		</Container>
 	)

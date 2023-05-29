@@ -97,6 +97,7 @@ const IngredientForm: FC<IngredientFormProps> = ({ setIngredients }) => {
 				onChange={e => handleSetQuantity(e.target.value)}
 				type='number'
 				onKeyDown={e => handleEnterClick(e, handleAddIngredient)}
+				data-testid='quantity-input'
 			/>
 			<UnitSelect setUnit={handleSetUnit} />
 			<NameInput
@@ -104,6 +105,7 @@ const IngredientForm: FC<IngredientFormProps> = ({ setIngredients }) => {
 				value={currentIngredient.name}
 				onChange={e => handleSetName(e.target.value)}
 				onKeyDown={e => handleEnterClick(e, handleAddIngredient)}
+				data-testid='name-input'
 			/>{' '}
 			<AddButton type='button' onClick={handleAddIngredient}>
 				Add
