@@ -19,7 +19,7 @@ To run this project locally, please follow these steps:
 
 2. Navigate to the project directory.
 
-```cd app```
+```cd Recipe-app```
 
 3. Install the dependencies.
 
