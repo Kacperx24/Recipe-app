@@ -44,4 +44,16 @@ To run this project locally, please follow these steps:
 
 The backend server for this application is located in a separate repository. You can find the repository [here](https://github.com/Kacperx24/Recipe-App-Backend).
 
+## Key Takeaways
+
+1. Thanks to this project, I became proficient in using TypeScript
+2. I honed my skills in using ReactQuery
+3. I learned how to create complicated forms using React-hook-form library
+4. I improve my good practises by structurizing files in a better way
+
+1. This project greatly enhanced my proficiency in using TypeScript.
+2. I sharpened my skills in using ReactQuery.
+3. I gained valuable experience in building complex forms using the React-hook-form library.
+4. I improved my coding practices by implementing a better file structure and organization.
+
 
