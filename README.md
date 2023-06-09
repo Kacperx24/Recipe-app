@@ -47,7 +47,7 @@ The backend server for this application is located in a separate repository. You
 ## Key Takeaways
 
 1. This project greatly enhanced my proficiency in using TypeScript.
-2. I sharpened my skills in using ReactQuery.
+2. I honed my skills in utilizing React Query for efficient data fetching and mutation operations.
 3. I gained valuable experience in building complex forms using the React-hook-form library.
 4. I improved my coding practices by implementing a better file structure and organization.
 
